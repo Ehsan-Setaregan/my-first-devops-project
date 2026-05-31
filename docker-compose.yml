@@ -1,0 +1,21 @@
+services:
+  my-web-app:
+    image: ehsan-webpage:v1
+    build: .
+    ports:
+      - "8082:80"
+    networks:
+      - devops-network
+
+  my-database:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: ehsan
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: devops_db
+    networks:
+      - devops-network
+
+networks:
+  devops-network:
+    driver: bridge
