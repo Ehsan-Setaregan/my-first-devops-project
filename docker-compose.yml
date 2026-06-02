@@ -13,9 +13,14 @@ services:
       POSTGRES_USER: ehsan
       POSTGRES_PASSWORD: mysecretpassword
       POSTGRES_DB: devops_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
     networks:
       - devops-network
 
 networks:
   devops-network:
     driver: bridge
+
+volumes:
+  postgres_data:
