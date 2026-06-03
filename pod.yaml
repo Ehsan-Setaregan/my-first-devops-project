@@ -1,0 +1,12 @@
+apiVersion: v1         # Sagt Kubernetes, dass es die API-Version 1 nutzen soll.
+kind: Pod             # Sagt Kubernetes: "Ich möchte einen Pod (einen Raum) erstellen".
+
+metadata:             # Die Identität (der Ausweis) des Pods.
+  name: ehsan-senior-pod # Der Name dieses Raums soll "ehsan-senior-pod" sein.
+
+spec:                 # Technische Spezifikationen innerhalb des Raums.
+  containers:         # Welche Container sollen in diesem Raum laufen?
+    - name: nginx-container # Der Name des Containers soll "nginx-container" sein.
+      image: nginx:alpine   # Lade das Nginx-Webserver-Image (die alpine-Version) herunter.
+      ports:
+        - containerPort: 80 # Der Container innerhalb des Pods lauscht auf Port 80.
